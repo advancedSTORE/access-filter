@@ -46,35 +46,50 @@ It is also possible to set multiple sub-permissions which are equally leveled.
 The user is required to have only one of there. Notice that I prefer to use
 also dotted naming for my route-names.
 
+<code>
 return [
 " admin.users.index"	=>	[
 	" ad4mat.admin.users.read",
 	" ad4mat.admin.users.self",
 	],
 ]
+</code>
+<p>
 This can come in handy if the user should have the possibility to get
 access to the users.index route but he should only see his own profile or all
 , you can decide that inside of your controller.
-
+</p>
 <h2>2. Usage</h2>
-
+<p>
 To check for a certain permission for example if you want to use it in a
 sidebar menu to display only certain elements.
-Structure
+</p>
 
+<h3>Structure</h3>
+
+<code>
 YourAlias::hasPermission( permissionString )
+</code>
 
 Example from my code
 
+<code>
 @if( AccessFilter::hasPermission('ad4mat.admin.roles.read') )
+</code>
 
+<p>
 If you want to use it to protect resources/routes than you create filter which
 calls the filter method and add it to which ever resource/route you like.
+</p>
 
-Create Filter
+<p>Create Filter</p>
+<code>
 Route::filter('accessFilter', function(){
     return AccessFilter::filter();
 });
+</code>
 
+<p>
 Notice Laravel only creates route-names for resources if you use single routes
 you have to add them yourself. These are the ones matches against the configuration array.
+</p>
