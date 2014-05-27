@@ -1,4 +1,4 @@
-Configuration
+**Configuration**
 
 Add following lines to your app.php.
 
@@ -40,7 +40,7 @@ This can come in handy if the user should have the possibility to get
 access to the users.index route but he should only see his own profile or all
 , you can decide that inside of your controller.
 
-Usage
+**Usage**
 
 To check for a certain permission for example if you want to use it in a
 sidebar menu to display only certain elements.
