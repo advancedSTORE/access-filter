@@ -1,15 +1,11 @@
 <h2>1. Configuration</h2>
-
-<p>
-    Add following lines to your app.php.
-</p>
-
+<p>Add following lines to your app.php.</p>
 <h4>Provider</h4>
 <pre>
 <code>
     'AdvancedStore\AccessFilter\AccessFilterServiceProvider',
 </code>
-            </pre>
+</pre>
 
 <h4>Aliases</h4>
 <pre>
@@ -23,13 +19,15 @@
     route-names and the most nested minimum required permission the user
     must have to access this route.
 </p>
-
 <p>
     My convention for permission naming is :
 </p>
-<pre><code>
-    [{SystemName}].{ApplicationName}.{Root}.{SubScope}.[0..* {SubScope}]
-</code></pre>
+<pre>
+<code>
+        [{SystemName}].{ApplicationName}.{Root}.{SubScope}.[0..* {SubScope}]
+</code>
+</pre>
+
 <p>
     Example :
 </p>
@@ -41,9 +39,9 @@
 <pre>
     <code>
         return [
-        "admin/users" => [
-        " myApplicationName.admin.users.listAll",
-        ],
+            "admin/users"   =>  [
+                "myApplicationName.admin.users.listAll",
+            ],
         ]
     </code>
 </pre>
@@ -57,10 +55,10 @@
 <pre>
 <code>
     return [
-    " admin.users.index" => [
-    " ad4mat.admin.users.read",
-    " ad4mat.admin.users.self",
-    ],
+        "admin.users.index" =>  [
+            "ad4mat.admin.users.read",
+            "ad4mat.admin.users.self",
+        ],
     ]
 </code>
     </pre>
@@ -80,7 +78,7 @@
 <code>
     YourAlias::hasPermission( permissionString )
 </code>
-    </pre>
+</pre>
 
 Example from my code
 
@@ -97,7 +95,7 @@ Example from my code
 <pre>
 <code>
     Route::filter('accessFilter', function(){
-    return AccessFilter::filter();
+        return AccessFilter::filter();
     });
 </code>
 </pre>
