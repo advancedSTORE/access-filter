@@ -4,16 +4,19 @@
     Add following lines to your app.php.
 </p>
 
-<h3>Provider</h3>
+<h4>Provider</h4>
+<pre>
 <code>
     'AdvancedStore\AccessFilter\AccessFilterServiceProvider',
 </code>
+            </pre>
 
-<h3>Aliases</h3>
-        <pre>
+<h4>Aliases</h4>
+<pre>
 <code>
     'YourAlias' => 'AdvancedStore\AccessFilter\Facades\AccessFilterFacade',
-</code></pre>
+</code>
+</pre>
 
 <p>
     Edit the configuration file permissionList.php and insert your
@@ -24,8 +27,9 @@
 <p>
     My convention for permission naming is :
 </p>
-
-[{SystemName}].{ApplicationName}.{Root}.{SubScope}.[0..* {SubScope}]
+<pre><code>
+    [{SystemName}].{ApplicationName}.{Root}.{SubScope}.[0..* {SubScope}]
+</code></pre>
 <p>
     Example :
 </p>
@@ -45,11 +49,11 @@
 </pre>
 
 
-        <p>
-            It is also possible to set multiple sub-permissions which are equally leveled.
-            The user is required to have only one of there. Notice that I prefer to use
-            also dotted naming for my route-names.
-        </p>
+<p>
+    It is also possible to set multiple sub-permissions which are equally leveled.
+    The user is required to have only one of there. Notice that I prefer to use
+    also dotted naming for my route-names.
+</p>
 <pre>
 <code>
     return [
@@ -90,7 +94,7 @@ Example from my code
 </p>
 
 <p>Create Filter</p>
-        <pre>
+<pre>
 <code>
     Route::filter('accessFilter', function(){
     return AccessFilter::filter();
