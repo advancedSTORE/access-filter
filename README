@@ -1,0 +1,32 @@
+Configuration
+Add following lines to your app.php.
+Provider 
+'AdvancedStore\AccessFilter\AccessFilterServiceProvider',
+Aliases 
+'YourAlias'  => 'AdvancedStore\AccessFilter\Facades\AccessFilterFacade',
+
+
+Edit the configuration file permissionList.php and insert your route-names and the most nested minimum required permission the user must have to access this route.
+My convention for permission naming is :
+[{SystemName}].{ApplicationName}.{Root}.{SubScope}.[0..* {SubScope}]
+Example : 
+Route-name is "admin/users"
+Required permission could be "myApplicationName.admin.users.listAll"
+The configuration array would look like this.
+
+return [
+"admin/users"	=>	[
+	" myApplicationName.admin.users.listAll",
+	],
+]
+
+It is also possible to set multiple sub-permissions which are equally leveled. The user is required to have only one of there. Notice that I prefer to use also dotted naming for my route-names.
+
+return [
+" admin.users.index"	=>	[
+	" ad4mat.admin.users.read",
+	" ad4mat.admin.users.self",
+	],
+]
+This can come in handy if the user should have the possibility to get access to the users.index route but he should only see his own profile or all, you can decide that inside of your controller.
+
