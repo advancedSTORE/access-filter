@@ -22,6 +22,8 @@ class AccessFilter
             $user = User::with('groups','partnerRoles')->find( $userId );
 
             $this->userPermissions = $this->extractUserPermissions( $user );
+        }else{
+            $this->userPermissions = $userPermissions;
         }
     }
 

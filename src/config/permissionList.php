@@ -13,7 +13,12 @@
 
 
 return [
-    // TEST ROUTE just as example
+    /**
+     * Example configuration.
+     * Structure for permissions
+     * {SystemName}.{ApplicationName}.{Root}.{SubScope}.[0..* {SubScope}]
+     */
+/*    // TEST ROUTE just as example
     'test'              =>  [
         'ad4mat.test',
     ],
@@ -53,84 +58,6 @@ return [
     'admin.users.update' =>  [
         'ad4mat.admin.users.update',
     ],
-    // PARTNERS
-    'admin.partners.index' =>  [
-        'ad4mat.admin.partners.read',
-        'ad4mat.admin.partners.self',
-        'ad4mat.admin.partners.ownPartners',
-    ],
-    'admin.partners.edit' =>  [
-        'ad4mat.admin.partners.edit',
-        'ad4mat.admin.partners.edit.self',
-        'ad4mat.admin.partners.edit.ownPartners',
-    ],
-    'admin.partners.create' =>  [
-        'ad4mat.admin.partners.create',
-    ],
-    'admin.partners.update' =>  [
-        'ad4mat.admin.partners.update',
-    ],
-    // PARTNERROLES
-    'admin.partnerRoles.index' =>  [
-        'ad4mat.admin.partnerRoles.read',
-        'ad4mat.admin.partnerRoles.self',
-        'ad4mat.admin.partnerRoles.ownPartnerRoles',
-    ],
-    [
-        'admin.partnerRoles.edit'   =>  [
-            'ad4mat.admin.partnerRoles.edit',
-        ],
-    ],
-    [
-        'admin.partnerRoles.create'   =>  [
-            'ad4mat.admin.partnerRoles.create',
-        ],
-    ],
-    [
-        'admin.partnerRoles.update'   =>  [
-            'ad4mat.admin.partnerRoles.update',
-        ],
-    ],
-    // APPS
-    'admin.apps.index' =>  [
-        'ad4mat.admin.apps.read',
-        'ad4mat.admin.apps.self',
-        'ad4mat.admin.apps.ownApps',
-    ],
-    'admin.apps.edit' =>  [
-        'ad4mat.admin.apps.edit',
-    ],
-    'admin.apps.create' =>  [
-        'ad4mat.admin.apps.create',
-    ],
-    'admin.apps.update' =>  [
-        'ad4mat.admin.apps.update',
-    ],
-    // APPPERMISSIONS
-    'admin.appPermissions.index' =>  [
-        'ad4mat.admin.appPermissions.read',
-    ],
-    'admin.appPermissions.edit' =>  [
-        'ad4mat.admin.appPermissions.edit',
-    ],
-    'admin.appPermissions.create' =>  [
-        'ad4mat.admin.appPermissions.create',
-    ],
-    'admin.appPermissions.update' =>  [
-        'ad4mat.admin.appPermissions.update',
-    ],
-    // OAUTH
-    'admin.oauthScopes.index' =>  [
-        'ad4mat.admin.oauthScopes.read',
-    ],
-    'admin.oauthScopes.edit' =>  [
-        'ad4mat.admin.oauthScopes.edit',
-    ],
-    'admin.oauthScopes.create' =>  [
-        'ad4mat.admin.oauthScopes.create',
-    ],
-    'admin.oauthScopes.update' =>  [
-        'ad4mat.admin.oauthScopes.update',
-    ],
+*/
 
 ];
