@@ -8,4 +8,5 @@
 
 return [
     'userPermissions'   =>  [],
+    'errorMessage'      =>   "You don't have the permission to access this resource.",
 ];

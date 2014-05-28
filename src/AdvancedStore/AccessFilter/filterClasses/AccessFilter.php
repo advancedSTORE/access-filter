@@ -30,7 +30,7 @@ class AccessFilter
     public function filter( ){
         $this->permissionsSet = $this->loadPermissionSet( \Route::getCurrentRoute()->getName() );
         if( $this->performAccessCheck() === false )
-            return \Redirect::back()    ->with('errorMessage', "You don't have the permission to access this resource.")
+            return \Redirect::back()    ->with('errorMessage', \Config::get("access-filter::accessFilterConfig.errorMessage"))
                                         ->with('errorType', 'danger');
     }
 
