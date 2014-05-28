@@ -46,7 +46,8 @@ class AccessFilterServiceProvider extends ServiceProvider {
 
     private function registerAccessFilter(){
         $this->app['accessFilter'] = $this->app->share(function($app){
-            return new AccessFilter();
+            $userPermissions = \Config::get('access-filter::accessFilterConfig.userPermissions');
+            return new AccessFilter( $userPermissions );
         });
     }
 

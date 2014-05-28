@@ -1,4 +1,17 @@
 <h2>1. Configuration</h2>
+<h4>Publish package config</h4>
+<p>Run the following command if you are installing for the first time.</p>
+<pre><code>
+    php artisan config:publish advanced-store/access-filter
+</code></pre>
+<p>
+    Edit the configuration file accessFilterConfig and add the userPermissions.
+    These should come either from your Sentry/User models or be hardcoded for
+    testing purpose. In future these will be extractable through the ad4mat API
+    client.
+</p>
+<h4>Publish package config</h4>
+
 <p>Add following lines to your app.php.</p>
 <h4>Provider</h4>
 <pre>
