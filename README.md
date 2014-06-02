@@ -2,8 +2,10 @@
 <p>This package adds functionality to laravel which allows you to create and use a simple permission filter for routes.</p>
 <h2>1. Installation</h2>
 <h4>via Composer</h4>
-<p>Add the following line to your <strong>composer.json</strong> .</p>
+<p>First add the following line to your <strong>composer.json</strong> .</p>
 <code>"advanced-store/access-filter": "dev-master"</code>
+<p>Run this command in you CLI.</p>
+<code>composer update</code>
 <h2>2. Configuration</h2>
 <h4>Publish package config</h4>
 <p>Run the following command if you are installing for the first time.</p>
