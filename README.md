@@ -1,4 +1,10 @@
-<h2>1. Configuration</h2>
+<h1>Access Filter</h1>
+<p>This package adds functionality to laravel which allows you to create and use a simple permission filter for routes.</p>
+<h2>1. Installation</h2>
+<h4>via Composer</h4>
+<p>Add the following line to your <strong>composer.json</strong> .</p>
+<code>"advanced-store/access-filter": "dev-master"</code>
+<h2>2. Configuration</h2>
 <h4>Publish package config</h4>
 <p>Run the following command if you are installing for the first time.</p>
 <pre>
@@ -12,8 +18,6 @@
     testing purpose. In future these will be extractable through the ad4mat API
     client.
 </p>
-<h4>Publish package config</h4>
-
 <p>Add following lines to your app.php.</p>
 <h4>Provider</h4>
 <pre>
@@ -82,7 +86,7 @@
     access to the users.index route but he should only see his own profile or all
     , you can decide that inside of your controller.
 </p>
-<h2>2. Usage</h2>
+<h2>3. Usage</h2>
 <p>
     To check for a certain permission for example if you want to use it in a
     sidebar menu to display only certain elements.
