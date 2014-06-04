@@ -115,12 +115,19 @@ Example from my code
 </p>
 
 <p>Create Filter</p>
+<p>
+    O2Client is my alias for the oauth2-client package which checks for a existence of a valid
+    token before the actual filter check is applied.
+</p>
 <pre>
 <code>
     Route::filter('accessFilter', function(){
+
+        if( O2Client::hasValidAccessToken() == false )
+            return Redirect::guest('logout');
+
         return AccessFilter::filter();
-    });
-</code>
+    });</code>
 </pre>
 <p>
     Notice Laravel only creates route-names for resources if you use single routes
