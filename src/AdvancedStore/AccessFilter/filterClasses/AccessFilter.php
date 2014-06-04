@@ -13,25 +13,20 @@ class AccessFilter
     private $userPermissions = null;
 
 
-    public function __construct( $userPermissions = null ){
-
-        if( $userPermissions === null ){
-
-            $userId = \Sentry::getUser()->id;
-
-            $user = User::with('groups','partnerRoles')->find( $userId );
-
-            $this->userPermissions = $this->extractUserPermissions( $user );
-        }else{
-            $this->userPermissions = $userPermissions;
-        }
+    public function __construct( $userPermissions = [] ){
+        $this->userPermissions = $userPermissions;
     }
 
     public function filter( ){
+        // TODO : implement a redirect to login if no valid access token is given.
+
         $this->permissionsSet = $this->loadPermissionSet( \Route::getCurrentRoute()->getName() );
-        if( $this->performAccessCheck() === false )
+        if( $this->performAccessCheck() === false ){
+
             return \Redirect::back()    ->with('errorMessage', \Config::get("access-filter::accessFilterConfig.errorMessage"))
                                         ->with('errorType', 'danger');
+        }
+
     }
 
     /**
