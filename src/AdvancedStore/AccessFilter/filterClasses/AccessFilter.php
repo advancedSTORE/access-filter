@@ -18,7 +18,6 @@ class AccessFilter
     }
 
     public function filter( ){
-        // TODO : implement a redirect to login if no valid access token is given.
 
         $this->permissionsSet = $this->loadPermissionSet( \Route::getCurrentRoute()->getName() );
         if( $this->performAccessCheck() === false ){
