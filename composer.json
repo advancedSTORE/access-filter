@@ -1,6 +1,6 @@
 {
     "name": "advanced-store/access-filter",
-    "description": "",
+    "description": "Creates simple access filter functionality.",
     "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
     "authors": [
         {
