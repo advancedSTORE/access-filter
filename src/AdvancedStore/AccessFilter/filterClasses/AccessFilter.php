@@ -88,7 +88,7 @@ class AccessFilter
 
         $appPermissionArray = explode ( '.', $appPermission );
 
-        $userPermissionArray = explode ( '.', $this->userPermissions );
+        $userPermissionArray = $this->userPermissions;
 
         if( count($appPermissionArray) == count($userPermissionArray) ){
             /**
@@ -102,7 +102,7 @@ class AccessFilter
                     return true;
 
             }while( count($appPermissionArray) >= 2 );
-            
+
         }else{
             return false;
         }
