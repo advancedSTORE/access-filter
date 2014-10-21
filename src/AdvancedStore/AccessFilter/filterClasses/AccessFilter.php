@@ -106,11 +106,10 @@ class AccessFilter
 
                 if( implode('.',$appPermissionArray) == implode('.',$userPermissionArray) )
                     return true;
-            }while( count($appPermissionArray) >= 3 );
-
-        }else{
-            return false;
+            }while( count($appPermissionArray) >= 4 );
         }
+
+        return false;
     }
 
 
