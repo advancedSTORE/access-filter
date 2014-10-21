@@ -86,21 +86,26 @@ class AccessFilter
          * todo : wenn die länge gleich ist, reduziere beide arrays, vergleiche die strings
          */
 
-        $appPermissionArray = explode ( '.', $appPermission );
+        foreach( $this->userPermissions as $userPermission ){
+            if( $this->arePermissionEqual($userPermission, $appPermission) )
+                return true;
+        }
 
-        $userPermissionArray = $this->userPermissions;
+        return false;
+    }
+
+    private function arePermissionEqual($userPermission, $appPermission){
+
+        $userPermissionArray = explode( '.', $userPermission );
+        $appPermissionArray = explode( '.', $appPermission );
 
         if( count($appPermissionArray) == count($userPermissionArray) ){
-            /**
-             * todo:  check permission
-             */
-
             do{
                 array_pop( $appPermissionArray );
                 array_pop( $userPermissionArray );
-                if( implode('.', $userPermissionArray) == implode('.', $userPermissionArray))
-                    return true;
 
+                if( implode('.',$appPermissionArray) == implode('.',$userPermissionArray) )
+                    return true;
             }while( count($appPermissionArray) >= 2 );
 
         }else{
