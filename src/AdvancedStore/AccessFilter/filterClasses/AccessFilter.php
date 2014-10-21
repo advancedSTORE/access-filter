@@ -23,7 +23,7 @@ class AccessFilter
         if( $this->performAccessCheck() === false ){
 
             return \Redirect::back()    ->with('errorMessage', \Config::get("access-filter::accessFilterConfig.errorMessage"))
-                                        ->with('errorType', 'danger');
+                ->with('errorType', 'danger');
         }
 
     }
@@ -75,8 +75,39 @@ class AccessFilter
         if( $this->checkString( $appPermission ))
             return true;
 
+        if( $this->checkPlaceHolder( $appPermission ) )
+            return true;
+
         return false;
     }
+
+    private function checkPlaceHolder( $appPermission ){
+        /**
+         * todo : wenn die länge gleich ist, reduziere beide arrays, vergleiche die strings
+         */
+
+        $appPermissionArray = explode ( '.', $appPermission );
+
+        $userPermissionArray = explode ( '.', $this->userPermissions );
+
+        if( count($appPermissionArray) == count($userPermissionArray) ){
+            /**
+             * todo:  check permission
+             */
+
+            do{
+                array_pop( $appPermissionArray );
+                array_pop( $userPermissionArray );
+                if( implode('.', $userPermissionArray) == implode('.', $userPermissionArray))
+                    return true;
+
+            }while( count($appPermissionArray) >= 2 );
+            
+        }else{
+            return false;
+        }
+    }
+
 
     private function checkArray( $appPermission ){
 
