@@ -87,25 +87,28 @@ class AccessFilter
          */
 
         foreach( $this->userPermissions as $userPermission ){
-            if( $this->arePermissionEqual($userPermission, $appPermission) )
+            if( $this->arePermissionsEqual($userPermission, $appPermission) )
                 return true;
         }
 
         return false;
     }
 
-    private function arePermissionEqual($userPermission, $appPermission){
+    private function arePermissionsEqual($userPermission, $appPermission){
+
 
         $userPermissionArray = explode( '.', $userPermission );
         $appPermissionArray = explode( '.', $appPermission );
 
         if( count($appPermissionArray) == count($userPermissionArray) ){
             do{
-                array_pop( $appPermissionArray );
-                array_pop( $userPermissionArray );
 
                 if( implode('.',$appPermissionArray) == implode('.',$userPermissionArray) )
                     return true;
+
+                array_pop( $appPermissionArray );
+                array_pop( $userPermissionArray );
+
             }while( count($appPermissionArray) >= 4 );
         }
 
