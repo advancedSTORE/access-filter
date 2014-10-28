@@ -22,8 +22,8 @@ class AccessFilter
         $this->permissionsSet = $this->loadPermissionSet( \Route::getCurrentRoute()->getName() );
         if( $this->performAccessCheck() === false ){
 
-            return \Redirect::back()    ->with('errorMessage', \Config::get("access-filter::accessFilterConfig.errorMessage"))
-                ->with('errorType', 'danger');
+            return \Redirect::back()->with(\SystemMessage::getMessageBladeKey(),
+                \SystemMessage::danger(\Config::get("access-filter::accessFilterConfig.errorMessage")));
         }
 
     }
