@@ -6,6 +6,7 @@ use AdvancedStore\AccessFilter\filterClasses\AccessFilter;
 
 class AccessFilterServiceProvider extends ServiceProvider {
 
+    const PACKAGE_NAME = 'advanced-store/access-filter';
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 *
@@ -20,7 +21,10 @@ class AccessFilterServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('advanced-store/access-filter');
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/accessFilterConfig.php',
+            self::PACKAGE_NAME
+		);
 	}
 
 	/**
