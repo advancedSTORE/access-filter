@@ -21,13 +21,9 @@ class AccessFilterServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/accessFilterConfig.php',
-            self::PACKAGE_NAME
-		);
-		/*$this->publisshes([
-			__DIR__.'../AccessFilter/'
-		], self::PACKAGE_NAME);*/
+        $this->publishes([
+            __DIR__.'/../../config/accessFilterConfig.php' => config_path('accessFilterConfig.php')
+        ]);
 	}
 
 	/**
