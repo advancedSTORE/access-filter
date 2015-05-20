@@ -6,7 +6,7 @@ use AdvancedStore\AccessFilter\filterClasses\AccessFilter;
 
 class AccessFilterServiceProvider extends ServiceProvider {
 
-    const PACKAGE_NAME = 'advanced-store/access-filter';
+    const PACKAGE_NAME = 'access-filter';
 	/**
 	 * Indicates if loading of the provider is deferred.
 	 *
@@ -27,7 +27,7 @@ class AccessFilterServiceProvider extends ServiceProvider {
 		);
 		$this->publisshes([
 			__DIR__.'../AccessFilter/'
-		]);
+		], self::PACKAGE_NAME);
 	}
 
 	/**
