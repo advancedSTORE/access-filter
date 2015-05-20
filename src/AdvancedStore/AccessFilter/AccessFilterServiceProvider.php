@@ -25,6 +25,9 @@ class AccessFilterServiceProvider extends ServiceProvider {
             __DIR__.'/../config/accessFilterConfig.php',
             self::PACKAGE_NAME
 		);
+		$this->publisshes([
+			__DIR__.'../AccessFilter/'
+		]);
 	}
 
 	/**
