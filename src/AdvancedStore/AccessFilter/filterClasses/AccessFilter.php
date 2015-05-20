@@ -6,12 +6,13 @@
  * Time: 16:04
  */
 namespace AdvancedStore\AccessFilter\filterClasses;
-use ad4mat\administration\User;
+use App\Models\User;
 class AccessFilter
 {
     private $permissionsSet = null;
     private $userPermissions = null;
 
+    private static $PERMISSION_LIST = null;
 
     public function __construct( $userPermissions = [] ){
         $this->userPermissions = $userPermissions;
@@ -23,7 +24,7 @@ class AccessFilter
         if( $this->performAccessCheck() === false ){
 
             return \Redirect::back()->with(\SystemMessage::getMessageBladeKey(),
-                \SystemMessage::danger(\Config::get("access-filter::accessFilterConfig.errorMessage")));
+                \SystemMessage::danger(\Config::get("accessFilterConfig.errorMessage")));
         }
 
     }
@@ -33,7 +34,10 @@ class AccessFilter
      * Loads the pre defined permission set which is required to access this route/action.
      */
     private function loadPermissionSet( $routeName ){
-        return \Config::get("access-filter::permissionList.{$routeName}");
+        if(self::$PERMISSION_LIST === null){
+            self::$PERMISSION_LIST = ApiClient::getUserPermissions();
+        }
+        return self::$PERMISSION_LIST[$routeName];
     }
 
     /**
