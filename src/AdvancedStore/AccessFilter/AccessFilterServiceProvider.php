@@ -25,9 +25,9 @@ class AccessFilterServiceProvider extends ServiceProvider {
             __DIR__.'/../config/accessFilterConfig.php',
             self::PACKAGE_NAME
 		);
-		$this->publisshes([
+		/*$this->publisshes([
 			__DIR__.'../AccessFilter/'
-		], self::PACKAGE_NAME);
+		], self::PACKAGE_NAME);*/
 	}
 
 	/**
@@ -52,7 +52,7 @@ class AccessFilterServiceProvider extends ServiceProvider {
 	}
 
     private function registerAccessFilter(){
-        $this->app['accessFilter'] = $this->app->share(function($app){
+        $this->app->bindShared('accessFilter', function($app){
             $userPermissions = \Config::get('access-filter::accessFilterConfig.userPermissions');
             return new AccessFilter( $userPermissions );
         });
