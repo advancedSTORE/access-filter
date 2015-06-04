@@ -15,12 +15,15 @@ class AccessFilter
     private static $PERMISSION_LIST = null;
 
     public function __construct( $userPermissions = [] ){
-        $this->userPermissions = $userPermissions;
+        $this->loadPermissions();
+        if ($userPermissions === null) {
+            $this->userPermissions = [];
+        }
     }
 
     public function filter( ){
 
-        $this->permissionsSet = $this->loadPermissionSet( \Route::getCurrentRoute()->getName() );
+        $this->permissionsSet = self::$PERMISSION_LIST[( \Route::getCurrentRoute()->getName() )];
         if( $this->performAccessCheck() === false ){
 
             return \Redirect::back()->with(\SystemMessage::getMessageBladeKey(),
@@ -33,11 +36,10 @@ class AccessFilter
      * @param $routeName simple route name which is used to access the config array.
      * Loads the pre defined permission set which is required to access this route/action.
      */
-    private function loadPermissionSet( $routeName ){
+    private function loadPermissions(){
         if(self::$PERMISSION_LIST === null){
-            self::$PERMISSION_LIST = ApiClient::getUserPermissions();
+            self::$PERMISSION_LIST = \ApiClient::getUserPermissions();
         }
-        return self::$PERMISSION_LIST[$routeName];
     }
 
     /**
