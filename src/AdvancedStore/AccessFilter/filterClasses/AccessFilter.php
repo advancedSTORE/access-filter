@@ -17,7 +17,9 @@ class AccessFilter
     public function __construct( $userPermissions = [] ){
         $this->loadPermissions();
         if ($userPermissions === null) {
-            $this->userPermissions = [];
+            $this->userPermissions = self::$PERMISSION_LIST;
+        } else {
+            $this->userPermissions = array_unique(array_merge(self::$PERMISSION_LIST, $userPermissions));
         }
     }
 
