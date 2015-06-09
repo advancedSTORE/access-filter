@@ -1,11 +1,11 @@
 {
-    "name": "advanced-store/access-filter",
+    "name": "advanced-store/oauth2-access-filter",
     "description": "Creates simple access filter functionality.",
     "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0",
     "authors": [
         {
             "name": "advanced STORE GmbH",
-            "email": "leonid.simonov@advanced-store.de"
+            "email": "jj@advanced-store.de"
         }
     ],
     "require": {
