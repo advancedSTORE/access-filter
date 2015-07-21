@@ -65,7 +65,7 @@ class AccessFilter
 
         foreach( $userRoles as $role ){
             foreach( $role->appPermissions->toArray() as $appPermission ){
-                $permissionArray[] = $appPermission['appPermissionName'];
+                $permissionArray[] = $appPermission['app_permission_name'];
             }
         }
 
